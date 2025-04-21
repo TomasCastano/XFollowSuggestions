@@ -1,29 +1,14 @@
 import './assets/css/App.css'
 import FollowCard from './Components/FollowCard/FollowCard'
+import UnfollowModal from './Components/UnfollowModal/UnfollowModal'
 
 function App() {
 
     const users = [
-        {
-            name: 'Kylian Mbappé',
-            username: 'KMbappe',
-            isFollowing: false
-        },
-        {
-            name: 'Bill Gates',
-            username: 'BillGates',
-            isFollowing: false
-        },
-        {
-            name: 'Jeff Bezos',
-            username: 'JeffBezos',
-            isFollowing: false
-        },
-        {
-            name: 'Cristiano Ronaldo',
-            username: 'Cristiano',
-            isFollowing: false
-        }
+        {name: 'Kylian Mbappé', username: 'KMbappe', isFollowing: false},
+        {name: 'Bill Gates', username: 'BillGates', isFollowing: false},
+        {name: 'Jeff Bezos', username: 'JeffBezos', isFollowing: false},
+        {name: 'Cristiano Ronaldo', username: 'Cristiano', isFollowing: false},
     ]
 
     return (
@@ -32,6 +17,7 @@ function App() {
                 <strong className='text-xl'>A quién seguir</strong>
                 {users.map(user => <FollowCard key={user.username} name={user.name} username={user.username} isFollowing={user.isFollowing} />)}
             </section>
+            <UnfollowModal open></UnfollowModal>
         </div>
     )
 }

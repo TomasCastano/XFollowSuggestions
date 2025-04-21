@@ -25,7 +25,7 @@ const FollowCard = ({ name, username, isFollowing }) => {
             </header>
             <aside>
                 <button
-                    className={`follow-button ml-[16px] text-sm font-bold py-[6px] px-[16px] rounded-full hover:cursor-pointer transition-all duration-300 ease ${isFollowingUser ? 'bg-black text-white border-1 border-neutral-800 hover:bg-red-500/20 hover:text-red-500 hover:border-red-500 active:bg-red-500/40' : 'bg-white text-black border-none hover:bg-gray-200 hover:text-neutral-800 active:bg-gray-300'}`}
+                    className={`follow-button ml-[16px] text-sm font-bold py-[6px] px-[16px] rounded-full hover:cursor-pointer transition-all duration-300 ease-in-out ${isFollowingUser ? 'bg-black text-white border-1 border-neutral-800 hover:bg-red-500/20 hover:text-red-500 hover:border-red-500 active:bg-red-500/40' : 'bg-white text-black border-none hover:bg-gray-200 hover:text-neutral-800 active:bg-gray-300'}`}
                     onClick={handleFollow}
                     onMouseEnter={() => setIsHovered(true)}
                     onMouseLeave={() => setIsHovered(false)}
