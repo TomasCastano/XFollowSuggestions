@@ -1,24 +1,39 @@
 import { useState } from 'react'
 import './assets/css/App.css'
-import FollowCard from './Components/FollowCard/FollowCard'
-import UnfollowModal from './Components/UnfollowModal/UnfollowModal'
+import FollowCard from './components/FollowCard/FollowCard'
+import UnfollowModal from './components/UnfollowModal/UnfollowModal'
+import userList from './data/userList'
 
 function App() {
 
-    const users = [
-        {name: 'Kylian Mbappé', username: 'KMbappe', isFollowing: false},
-        {name: 'Bill Gates', username: 'BillGates', isFollowing: false},
-        {name: 'Elon Musk', username: 'elonmusk', isFollowing: false},
-        {name: 'Cristiano Ronaldo', username: 'Cristiano', isFollowing: false},
-    ]
-
+    const [users, setUsers] = useState(userList)
     const [openModal, setOpenModal] = useState(false)
-    const [selectedUser, setSelectedUser] = useState(null)
+    const [userToUnfollow, setUserToUnfollow] = useState(null)
+    
+    const handleFollowToggle = (username) => {
+        setUsers((prev) =>
+            prev.map((user) => 
+                user.username === username ? {...user, isFollowing: !user.isFollowing} : user
+            )
+        )
+    }
 
-    const handleShowModal = (user) => {
-        if (openModal) return
-        setSelectedUser(user)
+    const handleUnfollowClick = (user) => {
+        setUserToUnfollow(user)
         setOpenModal(true)
+    }
+
+    const confirmUnfollow = () => {
+        if (userToUnfollow) {
+            handleFollowToggle(userToUnfollow.username)
+            setUserToUnfollow(null)
+            setOpenModal(false)
+        }
+    }
+
+    const cancelUnfollow = () => {
+        setUserToUnfollow(null)
+        setOpenModal(false)
     }
 
     return (
@@ -28,20 +43,19 @@ function App() {
                 {users.map(user => (
                     <FollowCard
                         key={user.username}
-                        name={user.name}
-                        username={user.username}
-                        isFollowing={user.isFollowing}
-                        onClickUnfollow={handleShowModal}
+                        user={user}
+                        onFollow={() => handleFollowToggle(user.username)}
+                        onUnfollow={() => handleUnfollowClick(user)}
                     />
                 ))}
             </section>
             <UnfollowModal
                 open={openModal}
+                user={userToUnfollow}
                 onClose={() => setOpenModal(false)}
-                selectedUser={selectedUser}
-            >
-
-            </UnfollowModal>
+                onConfirm={confirmUnfollow}
+                onCancel={cancelUnfollow}
+            />
         </div>
     )
 }

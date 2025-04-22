@@ -1,13 +1,8 @@
 import { useState } from "react"
 
-const FollowCard = ({ name, username, isFollowing, onClickUnfollow }) => {
+const FollowCard = ({ user, onFollow, onUnfollow }) => {
 
-    const [isFollowingUser, setIsFollowing] = useState(isFollowing)
     const [isHovered, setIsHovered] = useState(false)
-
-    const handleFollow = () => {
-        isFollowingUser ? onClickUnfollow(username) : setIsFollowing(!isFollowingUser)
-    }
 
     return (
         <>
@@ -15,27 +10,27 @@ const FollowCard = ({ name, username, isFollowing, onClickUnfollow }) => {
             <header className='flex items-center text-sm gap-2'>
                 <img
                     className='avatar rounded-full w-[40px] h-[40px]'
-                    src={`https://unavatar.io/x/${username}`}
-                    alt={username}
+                    src={`https://unavatar.io/x/${user.username}`}
+                    alt={user.username}
                 />
                 <div className="follow-info flex flex-col text-[15px]">
-                    <strong>{name}</strong>
-                    <span className='opacity-60'>@{username}</span>
+                    <strong>{user.name}</strong>
+                    <span className='opacity-60'>@{user.username}</span>
                 </div>
             </header>
             <aside>
                 <button
                     className={`follow-button ml-[16px] text-sm font-semibold py-[6px] px-[16px] rounded-full hover:cursor-pointer transition-all duration-300 ease-in-out
-                        ${isFollowingUser
+                        ${user.isFollowing
                             ? 'bg-black text-white border-1 border-neutral-800 hover:bg-red-500/20 hover:text-red-500 hover:border-red-500 active:bg-red-500/40'
                             : 'bg-white text-black border-none hover:bg-gray-200 hover:text-neutral-800 active:bg-gray-300'
                         }`
                     }
-                    onClick={handleFollow}
+                    onClick={user.isFollowing ? onUnfollow : onFollow}
                     onMouseEnter={() => setIsHovered(true)}
                     onMouseLeave={() => setIsHovered(false)}
                 >
-                    {isFollowingUser ? isHovered ? 'Dejar de seguir' : 'Siguiendo' : 'Seguir'}
+                    {user.isFollowing ? isHovered ? 'Dejar de seguir' : 'Siguiendo' : 'Seguir'}
                 </button>
             </aside>
         </article>

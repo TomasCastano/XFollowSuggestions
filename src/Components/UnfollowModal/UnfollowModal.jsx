@@ -1,7 +1,8 @@
-import { useState } from "react"
 import MainButton from "../MainButton/MainButton"
 
-const UnfollowModal = ({ open, onClose, selectedUser }) => {
+const UnfollowModal = ({ open, user, onClose, onConfirm, onCancel }) => {
+
+    if (!open) return null;
 
     return (
         <div onClick={onClose}
@@ -14,7 +15,7 @@ const UnfollowModal = ({ open, onClose, selectedUser }) => {
                 ${open ? 'scale-100 opacity-100' : 'scale-0 opacity-0'}`}
             >
                 <div className="flex flex-col gap-[8px]">
-                    <h3 className='text-xl font-semibold leading-6'>¿Queres dejar de seguir a @{selectedUser}?</h3>
+                    <h3 className='text-xl font-semibold leading-6'>¿Queres dejar de seguir a @{user.username}?</h3>
                     <p className='text-md font-light opacity-50 leading-[20px]'>
                         Sus posts ya no aparecerán en tu Cronología de inicio. Podrás seguir viendo su perfil, a menos que sus posts estén protegidos.
                     </p>
@@ -23,12 +24,13 @@ const UnfollowModal = ({ open, onClose, selectedUser }) => {
                     <MainButton
                         theme={'primary'}
                         className={'font-semibold py-[10px] px-[16px]'}
+                        onClick={onConfirm}
                     >
                         Dejar de seguir
                     </MainButton>
                     <MainButton
                         theme={'secondary'}
-                        onClick={onClose}
+                        onClick={onCancel}
                         className={'font-semibold py-[10px] px-[16px]'}
                     >
                         Cancelar
