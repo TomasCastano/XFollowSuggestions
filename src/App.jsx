@@ -3,6 +3,7 @@ import './assets/css/App.css'
 import FollowCard from './components/FollowCard/FollowCard'
 import UnfollowModal from './components/UnfollowModal/UnfollowModal'
 import userList from './data/userList'
+import ThemeSwitcher from './components/ThemeSwitcher/ThemeSwitcher'
 
 function App() {
 
@@ -35,10 +36,12 @@ function App() {
         setUserToUnfollow(null)
         setOpenModal(false)
     }
-
+    
     return (
         <div className='App grid place-content-center min-h-screen w-screen'>
-            <section className="follow-sugestion flex flex-col gap-5 min-w-sm p-5 border-1 border-neutral-800 rounded-2xl">
+            <ThemeSwitcher />
+            <section
+                className="follow-sugestion flex flex-col gap-5 min-w-sm p-5 border-1 border-neutral-800 rounded-2xl">
                 <strong className='text-xl'>A quién seguir</strong>
                 {users.map(user => (
                     <FollowCard
