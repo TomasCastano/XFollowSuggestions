@@ -38,10 +38,12 @@ function App() {
     }
     
     return (
-        <div className='App grid place-content-center min-h-screen w-screen'>
+        <div className='App relative grid place-content-center min-h-screen w-screen
+            dark:bg-black dark:text-white'>
             <ThemeSwitcher />
             <section
-                className="follow-sugestion flex flex-col gap-5 min-w-sm p-5 border-1 border-neutral-800 rounded-2xl">
+                className="follow-sugestion flex flex-col gap-5 min-w-sm p-5 border-1 border-neutral-200 rounded-2xl
+                    dark:border-neutral-800">
                 <strong className='text-xl'>A quién seguir</strong>
                 {users.map(user => (
                     <FollowCard

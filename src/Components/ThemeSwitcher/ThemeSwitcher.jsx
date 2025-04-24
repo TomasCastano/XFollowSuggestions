@@ -1,32 +1,44 @@
 import { useTheme } from '../../context/ThemeContext'
+import { Listbox } from '@headlessui/react'
+import LightModeRoundedIcon from '@mui/icons-material/LightModeRounded'
+import DesktopWindowsRoundedIcon from '@mui/icons-material/DesktopWindowsRounded'
+import NightlightRoundIcon from '@mui/icons-material/NightlightRound'
 
-const ThemeSwitcher = () => {
-    
+const themes = [
+    { value: 'dark', label: 'Oscuro', icon: <NightlightRoundIcon /> },
+    { value: 'light', label: 'Claro', icon: <LightModeRoundedIcon /> },
+    { value: 'system', label: 'Sistema', icon: <DesktopWindowsRoundedIcon /> },
+]
+
+export default function ThemeSwitcher() {
     const { theme, changeTheme } = useTheme()
 
+    const currentTheme = themes.find(t => t.value === theme)
+
     return (
-        <div className='flex flex-col gap-4'>
-            <p>Tema Actual: {theme}</p>
-            <button
-                onClick={() => changeTheme('light')}
-                className='p-6 py-2 bg-slate-200 hover:bg-slate-300 active:bg-slate-400 text-black'
-            >
-                Claro
-            </button>
-            <button
-                onClick={() => changeTheme('dark')}
-                className='p-6 py-2 bg-slate-200 hover:bg-slate-300 active:bg-slate-400 text-black'
-            >
-                Oscuro
-            </button>
-            <button
-                onClick={() => changeTheme('system')}
-                className='p-6 py-2 bg-slate-200 hover:bg-slate-300 active:bg-slate-400 text-black'
-            >
-                Sistema
-            </button>
+        <div className="absolute top-4 right-4">
+            <Listbox value={theme} onChange={changeTheme}>
+                <Listbox.Button
+                    className="flex items-center justify-center gap-2 border-1 border-neutral-300 p-3 w-full text-left
+                        text-neutral-700 rounded-sm outline-none"
+                >
+                    {currentTheme?.icon}
+                </Listbox.Button>
+                <Listbox.Options
+                    className="mt-1 shadow-lg rounded-sm outline-none"
+                >
+                {themes.map(t => (
+                    <Listbox.Option
+                        key={t.value}
+                        value={t.value}
+                        className="p-3 hover:bg-slate-100 flex items-center gap-2 text-neutral-700 border-1 border-neutral-300
+                            first:rounded-t-sm first:border-b-0 last:rounded-b-sm last:border-t-0"
+                    >
+                        {t.icon}
+                    </Listbox.Option>
+                ))}
+                </Listbox.Options>
+            </Listbox>
         </div>
     )
 }
-
-export default ThemeSwitcher

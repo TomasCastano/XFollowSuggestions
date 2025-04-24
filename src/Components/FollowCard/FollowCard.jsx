@@ -20,10 +20,10 @@ const FollowCard = ({ user, onFollow, onUnfollow }) => {
             </header>
             <aside>
                 <button
-                    className={`follow-button ml-[16px] text-sm font-semibold py-[6px] px-[16px] rounded-full hover:cursor-pointer transition-all duration-300 ease-in-out
+                    className={`follow-button ml-[16px] text-sm font-semibold py-[6px] px-[16px] rounded-full hover:cursor-pointer transition-all duration-300 ease-in-out bg-gray-950 dark:bg-white dark:text-gray-950   
                         ${user.isFollowing
-                            ? 'bg-black text-white border-1 border-neutral-800 hover:bg-red-500/20 hover:text-red-500 hover:border-red-500 active:bg-red-500/40'
-                            : 'bg-white text-black border-none hover:bg-gray-200 hover:text-neutral-800 active:bg-gray-300'
+                            ? 'bg-white text-gray-950 border-1 border-neutral-200 hover:bg-red-500/20 hover:text-red-500 hover:border-red-500 active:bg-red-500/40'
+                            : 'bg-gray-950 text-white border-none hover:bg-stone-900 active:bg-stone-800'
                         }`
                     }
                     onClick={user.isFollowing ? onUnfollow : onFollow}
