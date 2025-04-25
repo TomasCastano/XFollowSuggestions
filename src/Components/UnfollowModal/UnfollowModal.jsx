@@ -11,8 +11,9 @@ const UnfollowModal = ({ open, user, onClose, onConfirm, onCancel }) => {
         >
             <div
                 onClick={(e) => e.stopPropagation()} 
-                className={`modal flex flex-col gap-[24px] max-w-[320px] w-full bg-black rounded-2xl shadow p-[32px] transition-all duration-300 ease-in-out
-                ${open ? 'scale-100 opacity-100' : 'scale-0 opacity-0'}`}
+                className={`modal flex flex-col gap-[24px] max-w-[320px] w-full bg-white rounded-2xl shadow p-[32px] transition-all duration-300 ease-in-out
+                    dark:bg-black dark:text-white
+                    ${open ? 'scale-100 opacity-100' : 'scale-0 opacity-0'}`}
             >
                 <div className="flex flex-col gap-[8px]">
                     <h3 className='text-xl font-semibold leading-6'>¿Queres dejar de seguir a @{user.username}?</h3>
