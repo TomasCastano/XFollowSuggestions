@@ -5,8 +5,8 @@ import DesktopWindowsRoundedIcon from '@mui/icons-material/DesktopWindowsRounded
 import NightlightRoundIcon from '@mui/icons-material/NightlightRound'
 
 const themes = [
-    { value: 'dark', label: 'Oscuro', icon: <NightlightRoundIcon /> },
     { value: 'light', label: 'Claro', icon: <LightModeRoundedIcon /> },
+    { value: 'dark', label: 'Oscuro', icon: <NightlightRoundIcon /> },
     { value: 'system', label: 'Sistema', icon: <DesktopWindowsRoundedIcon /> },
 ]
 
