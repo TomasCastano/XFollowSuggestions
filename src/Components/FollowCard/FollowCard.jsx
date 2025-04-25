@@ -22,7 +22,7 @@ const FollowCard = ({ user, onFollow, onUnfollow }) => {
                 <button
                     className={`follow-button ml-[16px] text-sm font-semibold py-[6px] px-[16px] rounded-full hover:cursor-pointer transition-all duration-300 ease-in-out   
                         ${user.isFollowing
-                            ? 'bg-white text-gray-950 border-1 border-neutral-200 hover:bg-red-500/20 hover:text-red-500 hover:border-red-500 active:bg-red-500/40 dark:bg-gray-950 dark:text-white dark:border-1 dark:border-gray-500'
+                            ? 'bg-white text-gray-950 border-1 border-neutral-200 hover:bg-red-500/20 hover:text-red-500 hover:border-red-500 active:bg-red-500/40 dark:bg-black dark:text-white dark:border-1 dark:border-gray-500'
                             : 'bg-gray-950 text-white border-none hover:bg-stone-900 active:bg-stone-800 dark:bg-white dark:text-gray-950 border-1 dark:border-neutral-200 dark:hover:bg-neutral-200 dark:hover:text-gray-950 dark:active:bg-neutral-300'
                         }`
                     }

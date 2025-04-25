@@ -18,7 +18,6 @@ export const ThemeProvider = ({ children }) => {
     }
 
     useEffect(() => {
-        console.log('Tema activo:', theme)
         const root = document.documentElement;
 
         root.classList.remove('light', 'dark');

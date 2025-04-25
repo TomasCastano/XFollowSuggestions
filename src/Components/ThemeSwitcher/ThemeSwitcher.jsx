@@ -19,6 +19,7 @@ export default function ThemeSwitcher() {
         <div className="absolute top-5 right-5">
             <Listbox value={theme} onChange={changeTheme}>
                 <Listbox.Button
+                    title='Cambiar tema'
                     className="flex items-center justify-center gap-2 border-1 border-neutral-300 p-3 w-full text-left text-neutral-700 rounded-sm outline-none hover:bg-neutral-100 hover:text-yellow-500 transition-all duration-300 ease-in-out
                         dark:border-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-950 dark:hover:text-white"
                 >
@@ -31,9 +32,10 @@ export default function ThemeSwitcher() {
                     <Listbox.Option
                         key={t.value}
                         value={t.value}
-                        className="p-3 hover:bg-slate-100 flex items-center gap-2 text-neutral-700 border-1 border-neutral-300 hover:text-neutral-800 transition-all duration-300 ease-in-out
+                        title={t.label}
+                        className="bg-white p-3 hover:bg-slate-100 flex items-center gap-2 text-neutral-700 border-1 border-neutral-300 hover:text-neutral-800 transition-all duration-300 ease-in-out
                             first:rounded-t-sm first:border-b-0 last:rounded-b-sm last:border-t-0
-                            dark:border-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-950 dark:hover:text-white"
+                            dark:bg-black dark:border-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-950 dark:hover:text-white"
                     >
                         {t.icon}
                     </Listbox.Option>
