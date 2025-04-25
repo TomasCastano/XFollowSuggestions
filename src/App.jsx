@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import './assets/css/App.css'
-import FollowCard from './components/FollowCard/FollowCard'
-import UnfollowModal from './components/UnfollowModal/UnfollowModal'
+import FollowCard from './Components/FollowCard/FollowCard'
+import UnfollowModal from './Components/UnfollowModal/UnfollowModal'
 import userList from './data/userList'
-import ThemeSwitcher from './components/ThemeSwitcher/ThemeSwitcher'
+import ThemeSwitcher from './Components/ThemeSwitcher/ThemeSwitcher'
 
 function App() {
 
