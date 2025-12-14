@@ -20,8 +20,8 @@ export default function ThemeSwitcher() {
             <Listbox value={theme} onChange={changeTheme}>
                 <Listbox.Button
                     title='Cambiar tema'
-                    className="flex items-center justify-center gap-2 border-1 border-neutral-300 p-3 w-full text-left text-neutral-700 rounded-sm outline-none hover:bg-neutral-100 hover:text-yellow-500 transition-all duration-300 ease-in-out
-                        dark:border-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-950 dark:hover:text-white"
+                    className="flex items-center justify-center gap-2 border-1 border-neutral-300 p-3 w-full text-left text-neutral-700 rounded-sm outline-none hover:cursor-pointer hover:bg-neutral-100 hover:text-yellow-500 transition-all duration-300 ease-in-out
+                        dark:border-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-900 dark:hover:text-white"
                 >
                     {currentTheme?.icon}
                 </Listbox.Button>
